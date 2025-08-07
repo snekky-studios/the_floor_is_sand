@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj32517ckmqtg"]
+
+[ext_resource type="Script" uid="uid://05pdtkqysgew" path="res://scenes/spawner/spawner.gd" id="1_eoeca"]
+[ext_resource type="Texture2D" uid="uid://bv7xegr5xhikj" path="res://assets/sprites/pixel/white.png" id="2_wtxcb"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_eoeca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wtxcb")
+centered = false
