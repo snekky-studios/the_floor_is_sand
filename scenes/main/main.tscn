@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://by8u7i2tv5nhs"]
+[gd_scene load_steps=8 format=3 uid="uid://by8u7i2tv5nhs"]
 
 [ext_resource type="Script" uid="uid://w8qd37o2wee0" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://cdqyypgnoouha" path="res://scenes/grid/grid.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://cj32517ckmqtg" path="res://scenes/spawner/spawner.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dqe1ov8ioqcfh" path="res://scenes/entity/entity.tscn" id="4_6q06x"]
 [ext_resource type="FontFile" uid="uid://dievqbk2r8eyq" path="res://assets/fonts/m3x6.ttf" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://bov4c36xsjdhy" path="res://scenes/target/target.tscn" id="5_ow5a4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6q06x"]
 line_spacing = 0.0
@@ -19,6 +21,14 @@ unique_name_in_owner = true
 [node name="Spawner" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("3_k2fmo")]
 unique_name_in_owner = true
 grid = NodePath("../Grid")
+
+[node name="Entity" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("4_6q06x")]
+unique_name_in_owner = true
+position = Vector2(-3, 64)
+grid = NodePath("../Grid")
+
+[node name="Target" parent="." instance=ExtResource("5_ow5a4")]
+position = Vector2(43, 43)
 
 [node name="LabelSandString" type="Label" parent="."]
 offset_left = 1.0

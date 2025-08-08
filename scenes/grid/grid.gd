@@ -27,6 +27,8 @@ func _ready() -> void:
 			pixels_current[Vector2i(col, row)] = pixel_current
 			pixels_next[Vector2i(col, row)] = pixel_next
 	
+	set_pixels(Vector2i(20, 34), Vector2i(30, 35), Pixel.Type.WALL)
+	
 	display()
 	return
 
@@ -43,12 +45,27 @@ func display() -> void:
 	sprite_2d.texture = ImageTexture.create_from_image(image)
 	return
 
-func set_pixel_type(coordinate : Vector2i, new_type : Pixel.Type) -> void:
-	pixels_current[coordinate].type = new_type
-	set_pixel(coordinate, pixels_current[coordinate].type)
+func get_pixel_type(coordinate : Vector2i) -> Pixel.Type:
+	return pixels_current[coordinate].type
+
+func set_pixels(coordinate_start : Vector2i, coordinate_end : Vector2i, new_type : Pixel.Type) -> void:
+	for row : int in range(coordinate_start.y, coordinate_end.y):
+		for col : int in range(coordinate_start.x, coordinate_end.x):
+			var coordinate : Vector2i = Vector2i(col, row)
+			pixels_current[coordinate].type = new_type
+			pixels_next[coordinate].type = new_type
+			set_image_pixel(coordinate, pixels_current[coordinate].type)
 	return
 
-func set_pixel(coordinate : Vector2i, type : Pixel.Type) -> void:
+func set_pixel(coordinate : Vector2i, new_type : Pixel.Type) -> bool:
+	var result : bool = false
+	if(pixels_current[coordinate].type != new_type):
+		pixels_current[coordinate].type = new_type
+		result = true
+	set_image_pixel(coordinate, pixels_current[coordinate].type)
+	return result
+
+func set_image_pixel(coordinate : Vector2i, type : Pixel.Type) -> void:
 	image.set_pixel(coordinate.x, coordinate.y, Pixel.PixelColor[pixels_current[coordinate].type])
 	return
 
@@ -74,3 +91,9 @@ func swap(coordinate1 : Vector2i, coordinate2 : Vector2i) -> void:
 	pixels_next[coordinate1].type = pixels_current[coordinate2].type
 	pixels_next[coordinate2].type = pixels_current[coordinate1].type
 	return
+
+func get_sand_level_left_side() -> int:
+	var sand_level : int = 0
+	while(sand_level < NUM_COLS and pixels_current[Vector2i(0, sand_level)].type == Pixel.Type.NONE):
+		sand_level += 1
+	return sand_level
