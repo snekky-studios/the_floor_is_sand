@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bc62k2hfbl4up"]
+
+[ext_resource type="FontFile" uid="uid://dievqbk2r8eyq" path="res://assets/fonts/m3x6.ttf" id="1_cbfwj"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_cbfwj")
+font_color = Color(0.937, 0.976, 0.839, 1)
+shadow_size = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/level/level_data.gd" id="1_11txx"]
+
+[resource]
+script = ExtResource("1_11txx")
+name = "Level 2"
+max_sand = 375
+walls = Array[Vector2i]([Vector2i(27, 47), Vector2i(28, 47), Vector2i(29, 47), Vector2i(30, 47), Vector2i(31, 47), Vector2i(32, 47), Vector2i(33, 47), Vector2i(34, 47)])
+target_position = Vector2(29, 39)

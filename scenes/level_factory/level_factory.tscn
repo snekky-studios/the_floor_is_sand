@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxcethjeer2ix"]
+
+[ext_resource type="Script" uid="uid://cmk162j2tkfrh" path="res://scenes/level_factory/level_factory.gd" id="1_arrqr"]
+[ext_resource type="PackedScene" uid="uid://cdqyypgnoouha" path="res://scenes/grid/grid.tscn" id="1_mu3vk"]
+[ext_resource type="PackedScene" uid="uid://cj32517ckmqtg" path="res://scenes/spawner/spawner.tscn" id="2_arrqr"]
+[ext_resource type="PackedScene" uid="uid://bov4c36xsjdhy" path="res://scenes/target/target.tscn" id="4_425ta"]
+[ext_resource type="FontFile" uid="uid://dievqbk2r8eyq" path="res://assets/fonts/m3x6.ttf" id="5_w66gj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2j4f"]
+line_spacing = 0.0
+font = ExtResource("5_w66gj")
+font_color = Color(0.937, 0.976, 0.839, 1)
+shadow_size = 0
+
+[node name="LevelFactory" type="Node2D"]
+script = ExtResource("1_arrqr")
+file_name = "level_2"
+level_name = "Level 2"
+max_sand = 375
+
+[node name="Grid" parent="." instance=ExtResource("1_mu3vk")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("2_arrqr")]
+unique_name_in_owner = true
+grid = NodePath("../Grid")
+
+[node name="Target" parent="." instance=ExtResource("4_425ta")]
+unique_name_in_owner = true
+position = Vector2(29, 39)
+
+[node name="LabelSand" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 32.0
+offset_top = -4.0
+offset_right = 64.0
+offset_bottom = 9.0
+text = "0"
+label_settings = SubResource("LabelSettings_l2j4f")
+horizontal_alignment = 2

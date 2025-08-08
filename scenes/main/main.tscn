@@ -1,49 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8u7i2tv5nhs"]
+[gd_scene load_steps=4 format=3 uid="uid://by8u7i2tv5nhs"]
 
 [ext_resource type="Script" uid="uid://w8qd37o2wee0" path="res://scenes/main/main.gd" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://cdqyypgnoouha" path="res://scenes/grid/grid.tscn" id="2_iuonh"]
-[ext_resource type="PackedScene" uid="uid://cj32517ckmqtg" path="res://scenes/spawner/spawner.tscn" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://dqe1ov8ioqcfh" path="res://scenes/entity/entity.tscn" id="4_6q06x"]
-[ext_resource type="FontFile" uid="uid://dievqbk2r8eyq" path="res://assets/fonts/m3x6.ttf" id="4_l3cfh"]
-[ext_resource type="PackedScene" uid="uid://bov4c36xsjdhy" path="res://scenes/target/target.tscn" id="5_ow5a4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6q06x"]
-line_spacing = 0.0
-font = ExtResource("4_l3cfh")
-shadow_size = 0
+[ext_resource type="PackedScene" uid="uid://c067t084llobg" path="res://scenes/ui/ui.tscn" id="6_hujxm"]
+[ext_resource type="PackedScene" uid="uid://buot4twq3ylwo" path="res://scenes/level/level.tscn" id="6_yyfjg"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_hyk8p")
 
-[node name="Grid" parent="." instance=ExtResource("2_iuonh")]
+[node name="Level" parent="." instance=ExtResource("6_yyfjg")]
 unique_name_in_owner = true
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("3_k2fmo")]
+[node name="UI" parent="." instance=ExtResource("6_hujxm")]
 unique_name_in_owner = true
-grid = NodePath("../Grid")
-
-[node name="Entity" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("4_6q06x")]
-unique_name_in_owner = true
-position = Vector2(-3, 64)
-grid = NodePath("../Grid")
-
-[node name="Target" parent="." instance=ExtResource("5_ow5a4")]
-position = Vector2(43, 43)
-
-[node name="LabelSandString" type="Label" parent="."]
-offset_left = 1.0
-offset_top = -4.0
-offset_right = 33.0
-offset_bottom = 9.0
-text = "Sand"
-label_settings = SubResource("LabelSettings_6q06x")
-
-[node name="LabelSand" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 32.0
-offset_top = -4.0
-offset_right = 64.0
-offset_bottom = 9.0
-text = "0"
-label_settings = SubResource("LabelSettings_6q06x")
-horizontal_alignment = 2
+mouse_filter = 2

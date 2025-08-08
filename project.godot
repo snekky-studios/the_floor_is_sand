@@ -13,7 +13,8 @@ config_version=5
 config/name="lowrez_jam_2025"
 run/main_scene="uid://by8u7i2tv5nhs"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://assets/sprites/misc/icon.svg"
+boot_splash/image="uid://b1hoklhxbbmnd"
+config/icon="uid://b1hoklhxbbmnd"
 
 [debug]
 

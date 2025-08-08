@@ -1,6 +1,7 @@
 class_name LevelData
 extends Resource
 
-var max_sand : int = 0
-var walls : Array[Vector2i] = []
-var target_position : Vector2i
+@export var name : String = ""
+@export var max_sand : int = 0
+@export var walls : Array[Vector2i] = []
+@export var target_position : Vector2

@@ -5,10 +5,6 @@ const COLOR_WHITE : Color = Color(0.937, 0.976, 0.839)
 const COLOR_ORANGE : Color = Color(0.729, 0.314, 0.267)
 const COLOR_RED : Color = Color(0.478, 0.11, 0.294)
 const COLOR_BLACK : Color = Color(0.106, 0.012, 0.149)
-
-#const COLOR_LIGHT : Color = Color(0.945, 0.718, 0.545)
-#const COLOR_MEDIUM : Color = Color(0.584, 0.259, 0.118)
-#const COLOR_DARK : Color = Color(0.322, 0.11, 0.078)
 const COLOR_NONE : Color = Color(1.0, 1.0, 1.0, 0.0)
 
 enum Type

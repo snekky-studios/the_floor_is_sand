@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://buot4twq3ylwo"]
+
+[ext_resource type="Script" uid="uid://0am27heo0lmh" path="res://scenes/level/level.gd" id="1_h3e3j"]
+[ext_resource type="PackedScene" uid="uid://cdqyypgnoouha" path="res://scenes/grid/grid.tscn" id="2_hnne4"]
+[ext_resource type="PackedScene" uid="uid://cj32517ckmqtg" path="res://scenes/spawner/spawner.tscn" id="3_vpf64"]
+[ext_resource type="PackedScene" uid="uid://dqe1ov8ioqcfh" path="res://scenes/entity/entity.tscn" id="4_wcngd"]
+[ext_resource type="PackedScene" uid="uid://bov4c36xsjdhy" path="res://scenes/target/target.tscn" id="5_xv074"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_h3e3j")
+
+[node name="Grid" parent="." instance=ExtResource("2_hnne4")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("3_vpf64")]
+unique_name_in_owner = true
+grid = NodePath("../Grid")
+
+[node name="Entity" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("4_wcngd")]
+unique_name_in_owner = true
+grid = NodePath("../Grid")
+
+[node name="Target" parent="." instance=ExtResource("5_xv074")]
+unique_name_in_owner = true
